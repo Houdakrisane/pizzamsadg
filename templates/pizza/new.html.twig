@@ -1,0 +1,52 @@
+{% extends 'templaite.html.twig' %}
+
+{% block title %}
+<header></header>
+{% endblock %}
+
+
+{% block body %}
+<br>
+ <center><h2></h2></center>
+ 
+    {{ form_start(form) }}
+     <div class="container">
+     <div class="card rounded-2">
+          <div class="card-body p-4 p-md-5">
+     
+     
+            <div class="col col-md-2">
+             <duv>{{ form_row(form.nomPizza) }} </div>
+          
+       
+            
+          <div class="col col-md-2">
+              <div> {{ form_row(form.prix) }} </div>
+           </div>
+           <div class="col col-md-2">
+          <div> {{ form_row(form.imagepizza) }} </div>
+          
+        
+        </div>
+       
+         
+          <div class="col col-md-2">
+          <div> {{ form_row(form.proprite) }} </div>
+          
+        
+        </div>
+       
+     
+
+       
+          
+
+         
+         
+        <br><button class="btn btn-success btn-block btn-lg gradient-custom-1 text-body">{{ button_label|default('Savegarder') }}</button>
+    {{ form_end(form) }}
+   
+     
+
+</div>
+{% endblock %}

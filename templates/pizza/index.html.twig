@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pizza index{% endblock %}
+
+{% block body %}
+    <h1>Pizza index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomPizza</th>
+                <th>Prix</th>
+                <th>ImagePizza</th>
+                <th>Proprite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pizza in pizzas %}
+            <tr>
+                <td>{{ pizza.id }}</td>
+                <td>{{ pizza.nomPizza }}</td>
+                <td>{{ pizza.prix }}</td>
+                <td><img src="{{asset('assets/uploads/- ' ~ pizza.imagepizza)}}"alt="{{pizza.nomPizza}}"></td>
+                <td>{{ pizza.proprite }}</td>
+                <td>
+                    <a href="{{ path('app_pizza_show', {'id': pizza.id}) }}">show</a>
+                    <a href="{{ path('app_pizza_edit', {'id': pizza.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pizza_new') }}">Create new</a>
+{% endblock %}
